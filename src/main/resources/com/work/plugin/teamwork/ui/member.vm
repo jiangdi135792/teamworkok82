@@ -1,0 +1,19 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.admin">
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section">
+    <meta name="admin.active.tab" content="org-manage">
+</head>
+<body>#parse( "js/teamwork_template.soy")
+<a href="Organization.jspa">#getTextEx('workorg.property.Members.','reback')</a>
+<section id="content" role="main">
+    <div class="aui-page-panel">
+        <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">
+                <table id="org-member-table" data-org-id="$req.getParameter('orgId')"></table>
+            </section>
+        </div>
+    </div>
+</section>
+</body>
+</html>

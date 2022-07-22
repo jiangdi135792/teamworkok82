@@ -1,0 +1,49 @@
+$webResourceManager.requireResource("com.work.plugin.teamwork:workflowresource")
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- Create a trigger which will be used by the JavaScript -->
+将Issue分配给部门值班人
+<a href="#" style="text-decoration-line: none" id="dialog-show-button" onclick="showBlabla()">设置</a>
+
+<section id="demo-dialog" class="aui-dialog2 aui-dialog2-large aui-layer" role="dialog">
+    <header class="aui-dialog2-header">
+        <h2 class="aui-dialog2-header-main">选择部门值班人</h2>
+        <a class="aui-dialog2-header-close">
+            <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+        </a>
+    </header>
+    <div class="aui-dialog2-content">
+        <table class="aui">
+            <tbody>
+            <tr>
+                <td class="order" width="61.8%">
+                    <ul id="orgTree" class="ztree"></ul>
+                </td>
+                <td width="38.2%">
+                    <table border="0">
+                        <tr>
+                            <td>成员列表:</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul id="employeeList" style="list-style: none"></ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer class="aui-dialog2-footer">
+        <div class="aui-dialog2-footer-actions">
+            <button id="dialog-submit-button" onclick="hideBlabla()" class="aui-button aui-button-primary">确认</button>
+        </div>
+    </footer>
+</section>
+
+</body>
+</html>

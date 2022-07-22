@@ -1,0 +1,19 @@
+$webResourceManager.requireResource("com.work.plugin.teamwork:testview-scheduler-resources")
+<table class="aui"border="1">
+    <thead>
+    <tr>
+        <th id="order1" style="text-align: center">$i18n.getText("workorg.property.sync.number")</th>
+        <th id="order2" style="text-align: center">$i18n.getText("workorg.property.sync.directoryName")</th>
+        <th id="order3" style="text-align: center">$i18n.getText("workorg.property.sync.directoryType")</th>
+        <th id="action1" style="text-align: center">$i18n.getText("workorg.property.sync.address")</th>
+        <th id="action2" style="text-align: center">$i18n.getText("workorg.property.sync.delay")</th>
+        <th id="action3" style="text-align: center">$i18n.getText("workorg.property.sync.time")</th>
+        <th id="action4" style="text-align: center">$i18n.getText("workorg.property.sync.operate")</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+</table>
+<div>
+        <button id="saveb">save</button>
+</div>

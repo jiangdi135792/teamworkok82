@@ -1,0 +1,38 @@
+$webResourceManager.requireResource("com.work.plugin.teamwork:workflowresource")
+<table class="aui">
+    <thead>
+    <tr>
+        <td>选择一个部门</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td width="25%">
+            <ul id="orgTree" class="ztree"></ul>
+        </td>
+        <td width="30%" style="display: none;position:absolute" id="currentDept">
+            <p class="title">
+                <strong>当前值班人</strong>
+            </p>
+            <p id="deptDutyPerson"></p>
+            <a href="#" class="aui-button" style="float:right;" id="more">设置</a>
+        </td>
+        <td width="45%" id="employeeListTd" style="display: none;position:absolute;float: right">
+            <table width="100%">
+                <tr>
+                    <td>成员列表:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul id="employeeList" style="list-style: none"></ul>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--FunctionFactory-->
+<form>
+    <input name="realDeptId" id="realDeptId" type="hidden"/>
+</form>

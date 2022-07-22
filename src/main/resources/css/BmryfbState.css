@@ -1,0 +1,106 @@
+#photo{
+    background-image: url(images/photo.jpg);
+    background-size:16px 16px;
+    background-repeat: no-repeat;
+        position: absolute;
+        right: 10px;
+
+}
+
+.logo{
+    background-image: url(WORK/903172.png);
+    background-repeat: no-repeat;
+
+}
+.img{
+ background-image: url(WORK/9035163.png);
+ background-repeat: no-repeat;
+  margin:0 auto;
+     width:630px;
+}
+.img1{
+ background-image: url(WORK/9036080.png);
+ background-repeat: no-repeat;
+  margin:0 auto;
+     width:630px;
+}
+.img2{
+background-image: url(WORK/9037246.png);
+background-repeat: no-repeat;
+ margin:0 auto;
+    width:630px;
+
+}
+.img3{
+background-image: url(WORK/9038796.png);
+background-repeat: no-repeat;
+         margin:0 auto;
+            width:630px;
+}
+
+.img4{
+background-image: url(WORK/9039399.png);
+background-repeat: no-repeat;
+ margin:0 auto;
+    width:630px;
+}
+
+.img5{
+background-image: url(WORK/5424.png);
+background-repeat: no-repeat;
+ margin:0 auto;
+    width:630px;
+}
+
+.img6{
+background-image: url(WORK/5459.png);
+background-repeat: no-repeat;
+ margin:0 auto;
+    width:630px;
+}
+.img7{
+background-image: url(WORK/20180314l.png);
+background-repeat: no-repeat;
+margin:0 auto;
+    width:630px;
+}
+.img8{
+    background-image: url(WORK/20180314.png);
+    background-repeat: no-repeat;
+    margin:0 auto;
+    width:630px;
+}
+.img9{
+    background-image: url(WORK/201806251.png);
+    background-repeat: no-repeat;
+    margin:0 auto;
+    width:630px;
+}
+.img10{
+    background-image: url(WORK/201806252.png);
+    background-repeat: no-repeat;
+    margin:0 auto;
+    width:630px;
+}
+
+.radioSpan {
+    position: relative;
+    border: 1px solid #95B8E7;
+    background-color: #fff;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+}
+.img11{
+    background-image: url(WORK/2018720.png);
+    background-repeat: no-repeat;
+    margin:0 auto;
+    width:630px;
+}

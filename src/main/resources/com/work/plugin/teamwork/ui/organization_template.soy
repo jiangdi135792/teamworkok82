@@ -1,0 +1,43 @@
+{namespace manageWorkOrg.Template}
+
+/**
+ * @param id
+ * @param memberCount
+ * @param roleCount
+ */
+{template .mainOperationsList}
+
+       <ul class="operations-list">
+            <li>
+                <a class="aui-link" href="Role.jspa?orgId={$id}&type=2"> {getText('workorg.property.Organization.role')}({$roleCount})</a>
+            </li>
+
+        </ul>
+          <ul class="operations-list">
+                <li>
+                    <a class="aui-link" href="Member.jspa?orgId={$id}&type=1">  {getText('workorg.property.Members')}({$memberCount})</a>
+                </li>
+
+            </ul>
+
+{/template}
+
+/**
+ *
+ */
+{template .memberOperationsList}
+
+{/template}
+
+/**
+ * @param fieldName
+ */
+{template .memberCreateView}
+    <select class="js-default-user-picker" name="{$fieldName}"></select>
+{/template}
+/**
+ * @param fieldName
+ */
+{template .roleCreateView}
+    <select style="height:30px;width:250px;" class="jira-multi-select long-field" id="selectedGroupsStr-multi-select" data-query="a" name="{$fieldName}"></select>
+{/template}

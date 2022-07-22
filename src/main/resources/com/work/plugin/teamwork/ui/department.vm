@@ -1,0 +1,130 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.admin">
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section">
+    <meta name="admin.active.tab" content="org-manage">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.28/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="http://www.treejs.cn/v3/js/jquery.ztree.core.js?2013031101"></script>
+</head>
+<body>#parse( "js/teamwork_template.soy")
+<div class="aui-flatpack-example toolbar2-example">
+    <div class="aui-toolbar2">
+        <div class="aui-toolbar2-inner">
+            <div class="aui-toolbar2-primary">
+                <div id="button-set" class="aui-buttons">
+                    <button class="aui-button aui-button-primary" id="edit">#getTextEx("workorg.property.Department.","edit")</button>
+                </div>
+                <div id="button-set1" class="aui-buttons">
+                    <button class="aui-button" resolved="" id="create">#getTextEx("workorg.property.Department.","create")</button>
+                    <button class="aui-button" resolved="" id="delete">#getTextEx("workorg.property.Department.","delete")</button>
+                </div>
+            </div>
+        </div>
+        <!-- .aui-toolbar-inner -->
+    </div>
+</div>
+
+<section id="content" role="main">
+    <div class="zTreeDemoBackground left" style="width: 200px;float: left;">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+    <div style="margin-left: 220px;clear: none;margin-top: 0px;    border-left: 1px solid #ccc;">
+    <div class="aui-page-panel ">
+        <div class="aui-page-panel-inner">
+##            action="jira/rest/wk-teamwork/latest/department" method="post"
+            <form class="aui form1"  style="margin-top:20px">
+                <div class="field-group">
+                    <label for="comment-email">#getTextEx("workorg.property.Department.","departNo")
+                        #*<span class="aui-icon icon-required">(required)</span>*#
+                    </label>
+                    <input class="text medium-field" type="text"
+                           id="name" name="groupNo" placeholder="">
+                </div>
+                <div class="field-group">
+                    <label for="comment-email">#getTextEx("workorg.property.Department.","departName")
+                    </label>
+                    <input class="text medium-field" type="text"
+                           id="name1" name="groupName" placeholder="">
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","ParentdepartName")</label>
+                    <select class="select" id="parent" name="parent">
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","status")</label>
+                    <select class="select" id="status" name="status">
+                        <option value="0">#getTextEx("workorg.property.Department.","valid")</option>
+                        <option value="1">#getTextEx("workorg.property.Department.","unvalid")</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","type")</label>
+                    <select class="select" id="Level" name="type">
+                        <option value="0">#getTextEx("workorg.property.Department.","department")</option>
+                        <option value="1">#getTextEx("workorg.property.Department.","team")</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","superior")</label>
+                    <input class="text medium-field" type="text"
+                           id="name3" name="mappingCode" placeholder="">
+                </div>
+                <div class="field-group">
+                    <label for="comment-input">#getTextEx("workorg.property.Department.","remark")</label>
+                    <textarea class="textarea" name="memo"
+                              id="memo" placeholder="Your comment here..."></textarea>
+                </div>
+
+                <div class="buttons-container">
+                    <div class="buttons">
+                        <input class="button" type="button" value="#getTextEx('workorg.property.Department.','submit')" id="org-save-button">
+                        <a class="cancel" href="#">#getTextEx("workorg.property.Department.","reset")</a>
+                    </div>
+                </div>
+            </form>
+            <form class="aui form2"  style="display:none">
+                <div class="field-group">
+                    <label for="comment-email">#getTextEx("workorg.property.Department.","departNo")
+                      #*  <span class="aui-icon icon-required">(required)</span>*#
+                    </label>
+                   <div class="groupNo"></div>
+                </div>
+                <div class="field-group">
+                    <label for="comment-email">#getTextEx("workorg.property.Department.","departName")
+                    </label>
+                   <div class="groupName"></div>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","ParentdepartName")</label>
+                   <div class="parent"></div>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","status")</label>
+                 <div class="status"></div>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","type")</label>
+                   <div class="type"></div>
+                </div>
+                <div class="field-group">
+                    <label for="select-example">#getTextEx("workorg.property.Department.","superior")</label>
+                    <div class="mappingCode"></div>
+                </div>
+                <div class="field-group">
+                    <label for="comment-input">#getTextEx("workorg.property.Department.","remark")</label>
+                   <div class="memo"></div>
+                </div>
+
+               </form>
+        </div>
+    </div>
+        </div>
+</section>
+
+
+</body>
+</html>
+

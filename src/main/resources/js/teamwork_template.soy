@@ -1,0 +1,21 @@
+
+## getTextEx多语言解析扩展.
+#*
+用于下拉列表的list和view label解析
+*#
+#macro(getTextEx $dicListPrefix $dicListValueName )
+
+    #set($dicListValueName_old=$dicListValueName)
+
+    #set($dicListValueName =$dicListValueName.replace( " ", ""))
+    #set($name=$i18n.getText("$dicListPrefix$dicListValueName"))
+    #set($name_s="$dicListPrefix$dicListValueName")
+    #set($name_="$dicListPrefix")
+    #if($name_s==$name)
+         $dicListValueName_old
+    #elseif($name_==$name)
+         ""
+     #else
+        $i18n.getText("$dicListPrefix$dicListValueName")
+    #end
+#end

@@ -1,0 +1,562 @@
+﻿<style>#parse( "css/teamwork.css" )</style>
+<script>#parse( "js/teamwork.js" )</script>
+#parse( "js/teamwork_template.soy" )
+<div id="organizations" class="organizationsclass aui-tabs horizontal-tabs ">
+    <ul class="tabs-menu">
+        <li class="menu-item active-tab">
+            <a href="#sub1">$i18n.getText("workorg.property.issue.panel.Assignee")</a>
+        </li>
+        <li class="menu-item">
+            <a href="#sub2">$i18n.getText("workorg.property.issue.panel.Reporter")</a>
+        </li>
+        <li class="menu-item">
+            <a href="#sub3">$i18n.getText("workorg.property.issue.panel.People")</a>
+        </li>
+    </ul>
+    <div class="tabs-pane active-pane" id="sub1">
+        <div class="mod-bd">
+            <div>
+                <div class="mod-content">
+                    #if($!currAssigneeId=="" || "$!currAssigneeId"=="")
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        <P></P>
+                                        <P> $i18n.getText("workorg.property.issue.panel.msg.issueNoAssignee")</P>
+                                        <P></P>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #elseif(""==$!currAssigneeStaffName|| "$!currAssigneeStaffName"=="")
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        <P></P>
+                                        <P>[$!currAssigneeId]$i18n.getText(
+                                            "workorg.property.issue.panel.msg.assigneeNoberelated")</P>
+                                        <P></P>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #else
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        $!currAssigneeId<a data-aui-trigger
+                                                           aria-controls="more-detail-assignee$!randomStr"
+                                                           id="view-assignee" href="#more-detail-assignee$!randomStr"
+                                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Assignee.tooltip")>$!currAssigneeStaffName
+                                        <input hidden  value="emp_a1m$!assigneeStaffId">
+                                    </a>
+                                        <aui-inline-dialog id="more-detail-assignee$!randomStr" style="width: 500px;"
+                                                           alignment="right middle">
+                                            <section id="content1" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeName")</label>
+                                                                <div class="employeeName text employeeNamesub1a1m$!assigneeStaffId"></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeNo")</label>
+                                                                <div class="employeeNo text employeeNosub1a1m$!assigneeStaffId "></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.StrEmployee.","email")</label>
+                                                                <div class="email text emailsub1a1m$!assigneeStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeSex")</label>
+                                                                <div class="employeeSex text employeeSexsub1a1m$!assigneeStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.StrEmployee.","phone")</label>
+                                                                <div class="phone text phonesub1a1m$!assigneeStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employmentStatus")</label>
+                                                                <div class="employmentStatus text employmentStatussub1a1m$!assigneeStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.","entryTime")</label>
+                                                                <div class="entryTime text entryTimesub1a1m$!assigneeStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.","supervisor")</label>
+                                                                <div class="dirTop text">
+                                                                    <a data-aui-trigger aria-controls="more-detail-dirLeader$!randomStr"
+                                                                       id="view-assignee" href="#more-detail-dirLeader$!randomStr" class="supNamesub1a1m$!assigneeStaffId"
+                                                                       title=$i18n.getText("workorg.property.issue.panel.supervisor.tooltip")>##$!assigneeStrEmployeeDirector.employeeName
+                                                                    </a>
+                                                                </div>
+                                                                <aui-inline-dialog id="more-detail-dirLeader$!randomStr"
+                                                                                   style="width: 250px;"
+                                                                                   alignment="right middle">
+                                                                    <section id="content1" role="main">
+                                                                        <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                                            <div class="aui-page-panel-inner">
+                                                                                <form class="aui form1">
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","employeeName")</label>
+                                                                                        <span class="employeeName text employeeNamesub1subm$!assigneeSubId">##$!assigneeStrEmployeeDirector.employeeName
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","email")</label>
+                                                                                        <span class="email text emailsub1subm$!assigneeSubId">##$!assigneeStrEmployeeDirector.email
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","phone")</label>
+                                                                                        <span class="phone text phonesub1subm$!assigneeSubId">##$!assigneeStrEmployeeDirector.phone
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </aui-inline-dialog>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dt>$i18n.getText("workorg.property.issue.panel.Department"):</dt>
+                                    <dd>
+                                        <a data-aui-trigger aria-controls="more-detail-assignee-department$!randomStr"
+                                           id="view-assignee-department"
+                                           href="#more-detail-assignee-department$!randomStr"
+                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Department.tooltip")>$!currAssigneeDepartment
+                                            <input hidden value="dep_a2m$!assigneeDepartmentId">
+                                        </a>
+                                        <aui-inline-dialog id="more-detail-assignee-department$!randomStr"
+                                                           style="width: 500px;" alignment="right middle">
+                                            <!--   assigneeStrEmployee,assigneeDepartment -->
+                                            <section id="content5" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","departNo")</label>
+                                                                <div class="groupNo text groupNosub1a2m$!assigneeDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.Department.",
+                                                                    "departName")</label>
+                                                                <div class="groupName text groupNamesub1a2m$!assigneeDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","type")</label>
+                                                                <div class="type text typessub1a2m$!assigneeDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","status")</label>
+                                                                <div class="status text statusssub1a2m$!assigneeDepartmentId" ></div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dt>$i18n.getText("workorg.property.issue.panel.Company"):</dt>
+                                    <dd>
+                                        <a data-aui-trigger aria-controls="more-detail-assignee-company$!randomStr"
+                                           id="view-assignee-company" href="#more-detail-assignee-company$!randomStr"
+                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Company.tooltip")>$!currAssigneeOrganization
+                                            <input hidden value="org_a3m$!assigneeOrganizationId">
+                                        </a>
+                                        <aui-inline-dialog id="more-detail-assignee-company$!randomStr"
+                                                           style="width: 500px;" alignment="right middle">
+                                            <section id="content2" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","name")</label>
+                                                                <div class="name text namesub1a3m$!assigneeOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","type")</label>
+                                                                <div class="type text typesub1a3m$!assigneeOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","status")</label>
+                                                                <div class="status text statussub1a3m$!assigneeOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.organization.",
+                                                                    "character")</label>
+                                                                <div class="character text characterssub1a3m$!assigneeOrganizationId" ></div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd><a data-aui-trigger aria-controls="view-assignee-organizations-more$!randomStr"
+                                           id="view-assignee-organizations"
+                                           href="#view-assignee-organizations-more$!randomStr"
+                                    ><i class="icon-road"></i><span id="vote-data"
+                                                                    class="aui-badge vote-state-off">➠</span>$!currAssigneeOrganizationPath
+                                    </a>
+                                        <aui-inline-dialog id="view-assignee-organizations-more$!randomStr"
+                                                           responds-to="hover">
+                                            <div id="details-view-assignee-organizations" class="module toggle-wrap">
+                                                $!currAssigneeOrganizationPathTooltip
+                                            </div>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #end
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tabs-pane" id="sub2">
+        <div class="mod-bd">
+            <div>
+                <div class="mod-content">
+                    #if($!currReporterId=="" || "$!currReporterId"=="")
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        <P></P>
+                                        <P> $i18n.getText("workorg.property.issue.panel.msg.issueNoReporter")</P>
+                                        <P></P>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #elseif(""==$!currReporterStaffName|| "$!currReporterStaffName"=="")
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        <P></P>
+                                        <P>[$!currReporterId]$i18n.getText("workorg.property.issue.panel.msg.reporterNoberelated")</P>
+                                        <P></P>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #else
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd>
+                                        $!currReporterId<a data-aui-trigger
+                                                           aria-controls="more-detail-reporter$!randomStr"
+                                                           id="view-reporter" href="#more-detail-reporter$!randomStr"
+                                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Reporter.tooltip")>$!currReporterStaffName
+                                        <input hidden  value="emp_r1m$!reporterStaffId">
+                                    </a>
+                                        <aui-inline-dialog id="more-detail-reporter$!randomStr" style="width: 500px;"
+                                                           alignment="right middle">
+                                            <section id="content3" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeName")</label>
+                                                                <div class="employeeName text employeeNamesub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeNo")</label>
+                                                                <div class="employeeNo text employeeNosub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.StrEmployee.","email")</label>
+                                                                <div class="email text emailsub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employeeSex")</label>
+                                                                <div class="employeeSex text employeeSexsub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.StrEmployee.","phone")</label>
+                                                                <div class="phone text phonesub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.",
+                                                                    "employmentStatus")</label>
+                                                                <div class="employmentStatus text employmentStatussub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.","entryTime")</label>
+                                                                <div class="entryTime text entryTimesub2r1m$!reporterStaffId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.StrEmployee.","supervisor")</label>
+                                                                <div class="dirTop text">
+                                                                    <a data-aui-trigger aria-controls="more-detail-reporter-dirLeader$!randomStr"
+                                                                       id="view-reporter" href="#more-detail-dirLeader$!randomStr" class="supNamesub2r1m$!reporterStaffId"
+                                                                       title=$i18n.getText("workorg.property.issue.panel.supervisor.tooltip")>##$!reporterStrEmployeeDirector.employeeName
+
+                                                                    </a>
+                                                                </div>
+                                                                <aui-inline-dialog id="more-detail-reporter-dirLeader$!randomStr"
+                                                                                   style="width: 250px;"
+                                                                                   alignment="right middle">
+                                                                    <section id="content2" role="main">
+                                                                        <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                                            <div class="aui-page-panel-inner">
+                                                                                <form class="aui form1">
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","employeeName")</label>
+                                                                                        <span class="employeeName text employeeNamesub2subm$!reporterSubId">##$!reporterStrEmployeeDirector.employeeName
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","email")</label>
+                                                                                        <span class="email text emailsub2subm$!reporterSubId ">##$!reporterStrEmployeeDirector.email
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="field-group">
+                                                                                        <label>#getTextEx("workorg.property.StrEmployee.","phone")</label>
+                                                                                        <span class="phone text phonesub2subm$!reporterSubId" >##$!reporterStrEmployeeDirector.phone
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </aui-inline-dialog>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dt>$i18n.getText("workorg.property.issue.panel.Department"):</dt>
+                                    <dd>
+                                        <a data-aui-trigger aria-controls="more-detail-reporter-department$!randomStr"
+                                           id="view-reporter-department"
+                                           href="#more-detail-reporter-department$!randomStr"
+                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Department.tooltip")>$!currReporterDepartment
+                                            <input hidden value="dep_r2m$!reporterDepartmentId">
+                                        </a>
+                                        <aui-inline-dialog id="more-detail-reporter-department$!randomStr"
+                                                           style="width: 500px;" alignment="right middle">
+                                            <section id="content5" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","departNo")</label>
+                                                                <div class="groupNo text groupNosub2r2m$!reporterDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.Department.",
+                                                                    "departName")</label>
+                                                                <div class="groupName text groupNamesub2r2m$!reporterDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","type")</label>
+                                                                <div class="type text typessub2r2m$!reporterDepartmentId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.Department.","status")</label>
+                                                                <div class="status text statusssub2r2m$!reporterDepartmentId" ></div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dt>$i18n.getText("workorg.property.issue.panel.Company"):</dt>
+                                    <dd>
+                                        <a data-aui-trigger aria-controls="more-detail-reporter-company$!randomStr"
+                                           id="view-reporter-company" href="#more-detail-reporter-company$!randomStr"
+                                           title=$i18n.getText(
+                                            "workorg.property.issue.panel.Company.tooltip")>$!currReporterOrganization
+                                            <input hidden value="org_r3m$!reporterOrganizationId">
+                                        </a>
+                                        <aui-inline-dialog id="more-detail-reporter-company$!randomStr"
+                                                           style="width: 500px;" alignment="right middle">
+                                            <section id="content4" role="main">
+                                                <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                                    <div class="aui-page-panel-inner">
+                                                        <form class="aui form1">
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","name")</label>
+                                                                <div class="name text namesub2r3m$!reporterOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","type")</label>
+                                                                <div class="type text typesub2r3m$!reporterOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx(
+                                                                    "workorg.property.organization.","status")</label>
+                                                                <div class="status text statussub2r3m$!reporterOrganizationId" ></div>
+                                                            </div>
+                                                            <div class="field-group">
+                                                                <label>#getTextEx("workorg.property.organization.",
+                                                                    "character")</label>
+                                                                <div class="character text characterssub2r3m$!reporterOrganizationId" ></div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <ul class="item-details">
+                            <li>
+                                <dl>
+                                    <dd><a data-aui-trigger aria-controls="view-reporter-organizations-more$!randomStr"
+                                           id="view-reporter-organizations"
+                                           href="#view-reporter-organizations-more$!randomStr"
+                                    ><i class="icon-road"></i><span id="vote-data"
+                                                                    class="aui-badge vote-state-off">➠</span>$!currReporterOrganizationPath
+                                    </a>
+                                        <aui-inline-dialog id="view-reporter-organizations-more$!randomStr"
+                                                           responds-to="hover">
+                                            <div id="details-view-reporter-organizations" class="module toggle-wrap">
+                                                $!currReporterOrganizationPathTooltip
+                                            </div>
+                                        </aui-inline-dialog>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    #end
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tabs-pane" id="sub3">
+        <table class="aui">
+            <thead>
+            <tr>
+                <th id="type">#getTextEx("workorg.property.issue.panel.","type")</th>
+                <th id="name">#getTextEx("workorg.property.issue.panel.","self")</th>
+                <th id="order">#getTextEx("workorg.property.issue.panel.","parent")</th>
+            </tr>
+            </thead>
+            <tbody>
+                #set($list = $!list)
+                    #foreach ($item in $list)
+                        #set($rolId=$velocityCount)
+                        #set($flag="m")
+                <tr>
+                    #foreach($ob in $item)
+                        #if($velocityCount !=1)
+                            <td>
+                                <a data-aui-trigger
+                                   aria-controls="view-people-organizations-more$rolId$velocityCount$!randomStr"
+                                   id="view-people-organizations"
+                                   href="#view-people-organizations-more$rolId$velocityCount$!randomStr"
+                                   title=$i18n.getText("workorg.property.issue.panel.selfInfo")
+                                >$ob.employeeName
+                                    <input hidden value="emp_$rolId$velocityCount$flag$ob.strEmpId">
+                                </a>
+                                <aui-inline-dialog id="view-people-organizations-more$rolId$velocityCount$!randomStr"
+                                                   alignment="bottom middle" style="width: 500px;">
+                                    <section id="content2" role="main">
+                                        <div style="margin-left: 20px;clear: none;margin-top: 0px;  ">
+                                            <div class="aui-page-panel-inner">
+                                                <table class="aui">
+                                                    <tr>
+                                                        <td>#getTextEx("workorg.property.issue.panel.","email")</td>
+                                                        <td class="emailsub3$rolId$velocityCount$flag$ob.strEmpId" ></td>
+                                                        <td>#getTextEx("workorg.property.issue.panel.","dept")</td>
+                                                        <td class="groupNamesub3$rolId$velocityCount$flag$ob.strEmpId"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>#getTextEx("workorg.property.issue.panel.","phone")</td>
+                                                        <td class="phonesub3$rolId$velocityCount$flag$ob.strEmpId"></td>
+                                                        <td>#getTextEx("workorg.property.issue.panel.","org")</td>
+                                                        <td class="orgNamesub3$rolId$velocityCount$flag$ob.strEmpId"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </aui-inline-dialog>
+                            </td>
+                        #else
+                            <td>$ob.type</td>
+                        #end
+                    #end
+                </tr>
+                    #end
+            </tbody>
+        </table>
+    </div>
+</div>

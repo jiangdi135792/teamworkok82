@@ -1,0 +1,124 @@
+#photo {
+    background-image: url(images/photo.jpg);
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    float: right
+}
+.project-icon{
+    background-position: -145px -33px;
+}
+
+.org_ico_docu, .org_ico_open, .org_ico_close {
+    background-position: -128px -64px;
+}
+
+.dept_ico_docu, .dept_ico_open, .dept_ico_close {
+    background-position: -108px -80px;
+}
+
+.team_ico_docu, .team_ico_open, .team_ico_close {
+    background-position: -128px -48px;
+}
+.project_ico_docu, .project_ico_open, .project_ico_close {
+    background-position: -128px -32px;
+}
+.projectroot_ico_docu, .projectroot_ico_open, .projectroot_ico_close {
+    background-position: -128px 0;
+}
+
+#addEmployee-dialog .aui-item {
+    /*background: #f5f5f5;*/
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+tr.member-selected {
+    background-color: rgb(240, 240, 240) !important;
+    cursor: pointer;
+}
+
+.easyui-layout > div.show-right-border {
+    border-right: 1px solid #ccc;
+}
+form.aui .field-group .error, form.aui .group .error, form.aui .checkbox .error, form.aui .radio .error{
+    clear:none;
+}
+.form-error {
+    display: block;
+    color: #b94a48;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 140%;
+}
+.aui-select2-container.select2-allowclear .select2-choice .select2-search-choice-close {
+    display: block;
+    opacity: 0.7;
+    top: 10px;
+}
+
+.aui-select2-container.select2-allowclear .select2-choice .select2-search-choice-close:hover {
+    opacity: 1;
+}
+.aui-buttons .aui-button~.aui-button{
+    border-left-width: 1px;
+}
+
+.group_ico_docu:before
+{
+    content: "\f167";
+    font-size: 16px;
+    margin-top: -8px;
+    line-height: 1;
+    font-family: "Atlassian Icons";
+}
+.user_ico_docu:before
+{
+    content: "\f1ad";
+    font-size: 16px;
+    margin-top: -8px;
+    line-height: 1;
+    font-family: "Atlassian Icons";
+}
+.unmappedmember_ico_docu:before
+{
+    content: "\f1c9";
+    font-size: 16px;
+    margin-top: -8px;
+    line-height: 1;
+    font-family: "Atlassian Icons";
+}
+.teamproject_ico_docu:before
+{
+    content: "\f1ee";
+    font-size: 16px;
+    margin-top: -8px;
+    line-height: 1;
+    font-family: "Atlassian Icons";
+}
+.unmappedmember_ico_open:before,.unmappedmember_ico_close:before
+{
+    content: "\f192";
+    font-size: 16px;
+    margin-top: -8px;
+    line-height: 1;
+    font-family: "Atlassian Icons";
+}
+/*.ztree li span.button.group_ico_docu {*/
+    /*background-image: none;*/
+/*}*/
+/*.ztree li span.button.user_ico_docu {*/
+    /*background-image: none;*/
+/*}*/
+li span.button.user_ico_docu,
+li span.button.group_ico_docu,
+li span.button.unmappedmember_ico_docu,
+li span.button.unmappedmember_ico_open,
+li span.button.unmappedmember_ico_close,
+li span.button.teamproject_ico_docu
+{
+    background-image: none;
+}
+form.aui .aui-select2-container {
+    max-width: 250px !important;
+}

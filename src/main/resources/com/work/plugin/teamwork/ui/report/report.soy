@@ -1,0 +1,205 @@
+{namespace work.report.Template}
+
+/**
+ *
+ */
+{template .setReport}
+    <div class="easyui-panel">
+        <form class="aui form1">
+            <table>
+                <tr>
+                    <td><label>{getText('workorg.property.report.reportname')}</label></td>
+                    <td><input id="reportName" style="width:200px;" class="easyui-textbox reportNameClass"></td>
+                </tr>
+                <tr style="display:none">
+                    <td><label>{getText('workorg.property.report.reportkey')}</label></td>
+                    <td><input id="reportKey" style="width:200px;" class="easyui-textbox"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.groupone')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="groupone" data-options="editable:false">
+                            <option value="issue">issue(assignee + reporter)</option>
+                            <option value="assignee">assignee</option>
+                            <option value="reporter">reporter</option>
+                            <option value="worklogAuthor">worklogAuthor</option>
+                            <option value="project">project</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.grouptwo')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="grouptwo" data-options="editable:false">
+//                            <option value="0">project</option>
+//                            <option value="1">assignee</option>
+//                            <option value="2">reporter</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.showcolumn')}</label></td>
+                    <td><input id="showColumn" style="width:200px;" class="easyui-combobox" data-options="editable:false"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.configurecolumn')}</label></td>
+                    <td>
+                        <table id="configureColumn" class="easyui-datagrid">
+                            <thead>
+                            </thead>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.chartName')}</label></td>
+                    <td><input id="modelName" class="easyui-textbox" style="width:200px"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.isEnable')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="model_show" name="model_show" data-options="editable:false">
+                            <option value="8">{getText('workorg.property.report.disable')}</option>
+                            <option value="9">{getText('workorg.property.report.enable')}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.modelType')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="modelType" name="modelType" data-options="editable:false">
+                            <option value="0">{getText('workorg.property.report.lineChart')}</option>
+                            <option value="1">{getText('workorg.property.report.barChart')}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td ><label>{getText('workorg.property.report.startLine')}</label></td>
+                    <td><input id="startLine" style="width:200px;" class="easyui-numberbox"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.endLine')}</label></td>
+                    <td><input id="endLine" style="width:200px;" class="easyui-numberbox"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="main" style="height:300px;width: 800px;"></div></td>
+                </tr>
+//                <tr id="shareDemo" style="display: none">
+                <tr>
+                    <td><label>{getText('workorg.property.report.shareReport')}</label></td>
+                    <td>
+                        <label>{getText('workorg.property.StrEmployee.role')}</label>
+                        <input type="hidden" id="orgRole" class="js-example-basic-single"></select>
+                        <label>{getText('workorg.property.report.employee')}</label>
+                        <input type="hidden" id="employee" class="js-example-basic-single"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a id="saveReport_but" href="#" class="easyui-linkbutton" style="width:100px;display: none">{getText('workorg.property.report.savereport')}</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{/template}
+/**
+ @param reportKey
+ @param reportName
+ */
+{template .showReportSet}
+    <div class="easyui-panel">
+        <form class="aui form2">
+            <table>
+                <tr>
+                    <td><label>{getText('workorg.property.report.reportname')}</label></td>
+                    <td><input id="reportName" style="width:200px;" class="easyui-textbox" value="{$reportName}"></td>
+                </tr>
+                <tr style="display:none">
+                    <td><label>{getText('workorg.property.report.reportkey')}</label></td>
+                    <td><input id="reportKey" style="width:200px;" class="easyui-textbox" value="{$reportKey}" editable="false"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.groupone')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="groupone" data-options="editable:false">
+                            <option value="issue">issue(assignee + reporter)</option>
+                            <option value="assignee">assignee</option>
+                            <option value="reporter">reporter</option>
+                            <option value="worklogAuthor">worklogAuthor</option>
+                            <option value="project">project</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.grouptwo')}</label></td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="grouptwo" data-options="editable:false">
+//                            <option value="0">project</option>
+//                            <option value="1">assignee</option>
+//                            <option value="2">reporter</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.showcolumn')}</label></td>
+                    <td><input id="showColumn" style="width:200px;" class="easyui-combobox" data-options="editable:false"></td>
+                </tr>
+                <tr>
+                    <td><label>{getText('workorg.property.report.configurecolumn')}</label></td>
+                    <td>
+                        <table id="configureColumn" class="easyui-datagrid">
+                            <thead>
+                            </thead>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{getText('workorg.property.report.chartName')}</td>
+                    <td><input id="modelName" class="easyui-textbox" style="width:200px"></td>
+                </tr>
+                <tr>
+                    <td>{getText('workorg.property.report.isEnable')}</td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="model_show" name="model_show" data-options="editable:false">
+                            <option value="8">{getText('workorg.property.report.disable')}</option>
+                            <option value="9">{getText('workorg.property.report.enable')}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{getText('workorg.property.report.modelType')}</td>
+                    <td>
+                        <select class="easyui-combobox" style="width:200px;" id="modelType" name="modelType" data-options="editable:false">
+                            <option value="0">{getText('workorg.property.report.lineChart')}</option>
+                            <option value="1">{getText('workorg.property.report.barChart')}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td >{getText('workorg.property.report.startLine')}</td>
+                    <td><input id="startLine" style="width:200px;" class="easyui-numberbox"></td>
+                </tr>
+                <tr>
+                    <td>{getText('workorg.property.report.endLine')}</td>
+                    <td><input id="endLine" style="width:200px;" class="easyui-numberbox"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div id="main" style="height:300px;width: 800px;"></div></td>
+                </tr>
+//                <tr id='shareDemo' style="display: none" >
+                 <tr>
+                    <td><label>{getText('workorg.property.report.shareReport')}</label></td>
+                    <td>
+                        <label>{getText('workorg.property.StrEmployee.role')}</label>
+                        <input type="hidden" id="orgRole" class="js-example-basic-single"></select>
+                        <label>{getText('workorg.property.report.employee')}</label>
+                        <input type="hidden" id="employee" class="js-example-basic-single"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#" id="updateReport_but" class="easyui-linkbutton" style="width:100px;display: none">{getText('workorg.property.report.updatereport')}</a></td>
+                    <td><a href="#" id="deleteReport_but" class="easyui-linkbutton" style="width:100px;display: none">{getText('workorg.property.report.deletereport')}</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{/template}
+

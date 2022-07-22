@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.admin" />
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section" />
+    <meta name="admin.active.tab" content="org-manage" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.28/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="http://www.treejs.cn/v3/js/jquery.ztree.core.js?2013031101"></script>
+
+
+
+</head>
+<body >#parse( "js/teamwork_template.soy" )
+<input type="hidden" id="employee-table" data-employee-id="$req.getParameter('employeeId')"/>
+
+
+<section id="content" role="main">
+    <div class="zTreeDemoBackground left" style="width: 200px;float: left;">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+    <div style="margin-left: 220px;clear: none;margin-top: 0px;  border-left: 1px solid #ccc;">
+        <div class="aui-page-panel-inner">
+
+            <form class="aui form1">
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeName")</label>
+                    <div class="employeeName text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeNo")</label>
+                    <div class="employeeNo text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","email")</label>
+                    <div class="email text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeSex")</label>
+                    <div class="employeeSex text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","phone")</label>
+                    <div class="phone text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","otherPhone")</label>
+                    <div class="otherPhone text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employmentStatus")</label>
+                    <div class="employmentStatus text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","entryTime")</label>
+                    <div class="entryTime text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","leaveTime")</label>
+                    <div class="leaveTime text"></div>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","memo")</label>
+                    <div class="memo text"></div>
+                </div>
+
+            </form>
+
+
+
+
+
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+

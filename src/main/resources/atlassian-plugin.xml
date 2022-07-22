@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+<!--        <param name="atlassian-licensing-enabled">true</param>-->
+    </plugin-info>
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="teamwork"/>
+
+    <webwork1 key="wk-org-view" name="SHCH View WebWork">
+        <description key="wk-org-view.description">Provides the WebWork resource for SHCH .
+        </description>
+        <actions>
+            <action name="com.work.plugin.view.ViewDepartment" alias="viewDepartment">
+                <view name="success">/com/work/plugin/teamwork/ui/viewDepartment.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ViewOrganization" alias="viewOrganization">
+                <view name="success">/com/work/plugin/teamwork/ui/viewOrganization.vm</view>
+            </action>
+            <action name="com.work.plugin.view.RoleView" alias="Role">
+                <view name="success">/com/work/plugin/teamwork/ui/role.vm</view>
+            </action>
+            <action name="com.work.plugin.view.OrganizationView" alias="Organization">
+                <view name="success">/com/work/plugin/teamwork/ui/organization.vm</view>
+            </action>
+            <action name="com.work.plugin.view.DepartmentView" alias="dept">
+                <view name="success">/com/work/plugin/teamwork/ui/department.vm</view>
+            </action>
+            <action name="com.work.plugin.view.MemberView" alias="Member">
+                <view name="success">/com/work/plugin/teamwork/ui/member.vm</view>
+            </action>
+            <action name="com.work.plugin.view.OrgView" alias="Org">
+                <view name="success">/org/org.vm</view>
+            </action>
+            <action name="com.work.plugin.view.StrEmployeeView" alias="strEmployee">
+                <view name="success">/com/work/plugin/teamwork/ui/strEmployee1.vm</view>
+            </action>
+            <action name="com.work.plugin.view.BmryfbStateView" alias="BmryfbState">
+                <view name="success">/com/work/plugin/teamwork/ui/bmryfbState.vm</view>
+            </action>
+            <action name="com.work.plugin.view.GsryldStateView" alias="GsryldState">
+                <view name="success">/com/work/plugin/teamwork/ui/gsryldState.vm</view>
+            </action>
+            <action name="com.work.plugin.view.BmrygzStateView" alias="BmrygzState">
+                <view name="success">/com/work/plugin/teamwork/ui/bmrygzState.vm</view>
+            </action>
+            <action name="com.work.plugin.view.EmployeeView" alias="viewEmployee">
+                <view name="success">/com/work/plugin/teamwork/ui/viewEmployee.vm</view>
+            </action>
+            <action name="com.work.plugin.view.GroupMemberView" alias="gm">
+                <view name="success">/org/groupMember.vm</view>
+            </action>
+            <action name="com.work.plugin.view.TdryfbStateView" alias="TdryfbState">
+                <view name="success">/com/work/plugin/teamwork/ui/tdryfbState.vm</view>
+            </action>
+            <action name="com.work.plugin.view.TdrygzStateView" alias="TdrygzState">
+                <view name="success">/com/work/plugin/teamwork/ui/tdrygzState.vm</view>
+            </action>
+            <action name="com.work.plugin.view.HelpView" alias="teamworkHelp">
+                <view name="success">/com/work/plugin/teamwork/ui/index.vm</view>
+            </action>
+            <action name="com.work.plugin.view.TreeView" alias="tree">
+                <view name="success">/html/tree.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ShowView" alias="show">
+                <view name="success">/html/issue.vm</view>
+            </action>
+            <action name="com.work.plugin.view.SystemreportView" alias="SystemreportView">
+                <view name="success">/html/System report.vm</view>
+            </action>
+            <action name="com.work.plugin.view.PermissionView" alias="PermissionView">
+                <view name="success">/html/5.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportTopView" alias="ImportTopView"
+                    roles-required="sysadmin">
+                <view name="success">/html/import/top.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportEmployeeConfirmView"
+                    alias="ImportEmployeeConfirmView">
+                <view name="success">/html/import/confirm.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportEmployeeResultView"
+                    alias="ImportEmployeeResultView" roles-required="sysadmin">
+                <view name="success">/html/import/result.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportDepartmentConfirmView"
+                    alias="ImportDepartmentConfirmView" roles-required="sysadmin">
+                <view name="success">/html/import/confirm.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportDepartmentResultView"
+                    alias="ImportDepartmentResultView" roles-required="sysadmin">
+                <view name="success">/html/import/result.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportOrganizeConfirmView"
+                    alias="ImportOrganizeConfirmView" roles-required="sysadmin">
+                <view name="success">/html/import/confirm.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ImportOrganizeResultView"
+                    alias="ImportOrganizeResultView" roles-required="sysadmin">
+                <view name="success">/html/import/result.vm</view>
+                <view name="invalid">/html/import/invalid.vm</view>
+            </action>
+
+            <action name="com.work.plugin.view.TaskView" alias="taskview">
+                <view name="success">/com/work/plugin/teamwork/ui/domaintype.vm</view>
+            </action>
+            <action name="com.work.plugin.view.AuthManageView" alias="authManage">
+                <view name="success">/com/work/plugin/teamwork/ui/authorityManagement.vm</view>
+            </action>
+            <action name="com.work.plugin.view.testview" alias="testview">
+                <view name="success">/com/work/plugin/teamwork/ui/test.vm</view>
+            </action>
+            <action name="com.work.plugin.view.LowerIssuesView" alias="lowerissues">
+                <view name="success">/com/work/plugin/teamwork/ui/lowerissues.vm</view>
+            </action>
+
+            <action name="com.work.plugin.view.SetReportView" alias="setReport">
+                <view name="success">/com/work/plugin/teamwork/ui/report/setReport.vm</view>
+            </action>
+            <action name="com.work.plugin.view.ShowReportView" alias="showReport">
+                <view name="success">/com/work/plugin/teamwork/ui/report/showReport.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+
+
+    <rest key="rest-service-wk-org-resource" path="/wk-teamwork" version="1">
+        <description key="rest-service-wk-org-resource.description">Provides the REST resource for SHCH
+            teamwrok.
+        </description>
+        <package>com.work.plugin.rest</package>
+        <package>com.work.plugin.report</package>
+    </rest>
+    <ao key="ao-modulez">
+        <description>The module configuring the Active Objects service used by this plugin</description>
+        <entity>com.work.plugin.ao.OrganizationEntity</entity>
+        <entity>com.work.plugin.ao.MemberEntity</entity>
+        <entity>com.work.plugin.ao.DepartmentEntity</entity>
+        <entity>com.work.plugin.ao.StrEmployee</entity>
+        <entity>com.work.plugin.ao.StrGroups</entity>
+        <entity>com.work.plugin.ao.StrOrganize</entity>
+        <entity>com.work.plugin.ao.BmryfbState</entity>
+        <entity>com.work.plugin.ao.GsryldState</entity>
+        <entity>com.work.plugin.ao.StrOrganizeGroup</entity>
+        <entity>com.work.plugin.ao.StruGroupOfEmployee</entity>
+        <entity>com.work.plugin.ao.LSDataEntity</entity>
+        <entity>com.work.plugin.ao.StrEmployeeExtend</entity>
+        <entity>com.work.plugin.ao.LdapSyncTime</entity>
+        <entity>com.work.plugin.ao.StrPowerRole</entity>
+        <entity>com.work.plugin.ao.RoleEntity</entity>
+        <entity>com.work.plugin.ao.PowerEntity</entity>
+        <entity>com.work.plugin.ao.StrEmployeeOfRole</entity>
+        <entity>com.work.plugin.ao.TeamProjectEntity</entity>
+        <entity>com.work.plugin.ao.ImportDataTempEntity</entity>
+        <entity>com.work.plugin.report.SetReport</entity>
+        <entity>com.work.plugin.report.SetReportColumn</entity>
+        <entity>com.work.plugin.ao.OrganizationAndPowerEntity</entity>
+        <entity>com.work.plugin.ao.WeChatAndJiraUserEntity</entity>
+        <entity>com.work.plugin.ao.TeamProjectMember</entity>
+        <entity>com.work.plugin.report.ShareReport</entity>
+    </ao>
+    <component-import key="i18nResolver" interface="com.atlassian.sal.api.message.I18nResolver"/>
+    <component-import key="ao" interface="com.atlassian.activeobjects.external.ActiveObjects"/>
+
+    <!--by liexter start last 20210710-->
+
+
+    <component-import key="crowdService" interface="com.atlassian.crowd.embedded.api.CrowdService"/>
+    <component-import key="eventPublisher" interface="com.atlassian.event.api.EventPublisher"/>
+    <component-import key="issueManager" interface="com.atlassian.jira.issue.IssueManager"/>
+    <component-import key="customFieldManager" interface="com.atlassian.jira.issue.CustomFieldManager"/>
+    <component-import key="labelManager" interface="com.atlassian.jira.issue.label.LabelManager"/>
+    <component-import key="globalPermissionManager" interface="com.atlassian.jira.security.GlobalPermissionManager"/>
+    <component-import key="jiraAuthenticationContext"
+                      interface="com.atlassian.jira.security.JiraAuthenticationContext"/>
+    <component key="organizationCustomFieldService"
+               class="com.work.plugin.customfield.OrganizationCustomFieldServiceImpl"
+               interface="com.work.plugin.customfield.OrganizationCustomFieldService"/>
+    <component key="organizationCustomFieldsService"
+               class="com.work.plugin.customfield.OrganizationCustomFieldsServiceImpl"
+               interface="com.work.plugin.customfield.OrganizationCustomFieldsService"/>
+    <component key="organizationEventListener"
+               class="com.work.plugin.listener.IssueCreatedEventListener"
+               interface="com.atlassian.sal.api.lifecycle.LifecycleAware"
+               public="true"/>
+
+    <component-import key="pluginLicenseManager" interface="com.atlassian.upm.api.license.PluginLicenseManager"/>
+    <component key="licenseService" class="com.work.plugin.util.license.license.LicenseServiceImpl"
+               interface="com.work.plugin.util.license.license.LicenseService" public="true"/>
+    <component key="lSDataAOService" class="com.work.plugin.ao.LSDataAOServiceImpl"
+               interface="com.work.plugin.ao.LSDataAOService" public="true"/>
+    <component key="lSDataOrgProService" class="com.work.plugin.impl.LSDataOrgProServiceImpl"
+               interface="com.work.plugin.api.LSDataOrgProService" public="true"/>
+    <component key="employeeService" class="com.work.plugin.impl.EmployeeServiceImpl"
+               interface="com.work.plugin.api.EmployeeService" public="true"/>
+
+
+    <web-panel name="IssueOrgWebpageTab" i18n-name-key="issue-org-webpage-tab.name" key="issue-org-webpage-tab"
+               location="atl.jira.view.issue.right.context" weight="10">
+        <description key="issue-org-webpage-tab.description">The IssueOrgWebpageTab Plugin</description>
+        <context-provider class="web.contextproviders.GetOgranizations"/>
+        <label key="workorg.property.issue.panel.reference"/>
+        <tooltip key="workorg.property.issue.panel.reference.tooltip"/>
+
+        <resource name="view" type="velocity"
+                  location="com/work/plugin/teamwork/ui/reference-gh-issue-details-panel-1.vm"/>
+        <resource name="iconLightbulb" type="download" location="images/lightbulb.png"/>
+        <resource name="teamwork.js" type="download" location="js/teamwork.js"/>
+    </web-panel>
+
+
+
+    <!--by liexter end last 20210710-->
+
+
+    <!--by sunfang start last 20170710-->
+
+
+    <component key="sectionAOService" class="com.work.plugin.ao.DepartmentAOServiceImpl"
+               interface="com.work.plugin.ao.DepartmentAOService"/>
+    <component key="strOrganizeService" class="com.work.plugin.ao.StrOrganizeServiceImpl"
+               interface="com.work.plugin.ao.StrOrganizeService"/>
+    <component key="memberAOService" class="com.work.plugin.ao.MemberAOServiceImpl"
+               interface="com.work.plugin.ao.MemberAOService"/>
+
+
+
+
+    <!-- add our web resources -->
+
+    <web-resource key="wk-org-OrgView-resources" name="SHCH teamwrok Pro bmryfbState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="viewOrganization.js" type="download"
+                  location="com/work/plugin/teamwork/ui/viewOrganization.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+
+    <web-resource key="wk-org-helpView-resources" name="SHCH teamwrok Pro HelpView Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bootstrap.css" type="download" location="com/work/plugin/teamwork/ui/bootstrap.css"/>
+        <resource name="style.css" type="download" location="com/work/plugin/teamwork/ui/style.css"/>
+        <resource name="WORK/" type="download" location="WORK/"/>
+        <resource name="BmryfbState.css" type="download" location="css/BmryfbState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-TreeView-resources" name="SHCH teamwrok Pro TreeView Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bootstrap.css" type="download" location="css1/bootstrap.css"/>
+        <resource name="style.css" type="download" location="css1/style.css"/>
+        <resource name="tree.files/" type="download" location="tree.files/"/>
+        <resource name="bootstrap.min.css" type="download" location="css1/bootstrap.min.css"/>
+        <resource name="Allcss.css" type="download" location="css1/Allcss.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-SystemreportView-resources"
+                  name="SHCH teamwrok Pro SystemreportView Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bootstrap.css" type="download" location="css1/bootstrap.css"/>
+        <resource name="style.css" type="download" location="css1/style.css"/>
+        <resource name="Systemreport/" type="download" location="Systemreport/"/>
+        <resource name="bootstrap.min.css" type="download" location="css1/bootstrap.min.css"/>
+        <resource name="Allcss.css" type="download" location="css1/Allcss.css"/>
+    </web-resource>
+
+
+    <web-resource key="wk-org-ShowView-resources" name="SHCH teamwrok Pro ShowView Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bootstrap.css" type="download" location="css1/bootstrap.css"/>
+        <resource name="style.css" type="download" location="css1/style.css"/>
+        <resource name="issue.files/" type="download" location="issue.files/"/>
+        <resource name="bootstrap.min.css" type="download" location="css1/bootstrap.min.css"/>
+        <resource name="Allcss.css" type="download" location="css1/Allcss.css"/>
+    </web-resource>
+
+
+    <!--    <web-resource key="wk-org-PermissionView-resources" name="SHCH teamwrok Pro PermissionView Web Resources">
+            <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+            <transformation extension="js">
+                <transformer key="jsI18n"/>
+            </transformation>
+            <transformation extension="soy">
+                <transformer key="soyTransformer"/>
+            </transformation>
+            <resource name="bootstrap.css" type="download" location="css1/bootstrap.css"/>
+            <resource name="style.css" type="download" location="css1/style.css"/>
+            <resource name="5.files/" type="download" location="5.files/"/>
+            <resource name="bootstrap.min.css" type="download" location="css1/bootstrap.min.css"/>
+            <resource name="Allcss.css" type="download" location="css1/Allcss.css"/>
+        </web-resource>-->
+
+    <web-resource key="wk-org-deptView-resources" name="SHCH teamwrok Pro bmryfbState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="viewDepartment.js" type="download"
+                  location="com/work/plugin/teamwork/ui/viewDepartment.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+
+
+    <web-resource key="wk-org-department-resources" name="SHCH teamwrok Pro bmryfbState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="department.js" type="download" location="com/work/plugin/teamwork/ui/department.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+
+
+    <web-resource key="wk-org-main-resources" name="SHCH teamwrok Pro Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="organization.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="organization.css" type="download" location="css/organization.css"/>
+        <resource name="Allcss.css" type="download" location="css1/Allcss.css"/>
+    </web-resource>
+    <web-resource key="wk-org-member-resources" name="SHCH teamwrok Pro Member Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="org.member.js" type="download" location="com/work/plugin/teamwork/ui/member.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+    <web-resource key="wk-org-role-resources" name="SHCH teamwrok Pro Member Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="org.role.js" type="download" location="com/work/plugin/teamwork/ui/role.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+
+
+    <!--
+    <web-resource key="wk-org-permissionAssignment-resources" name="SHCH teamwrok Pro Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="permissionAssignment.js" type="download" location="com/work/plugin/teamwork/ui/permissionAssignment.js.js"/>
+        <resource name="organization_template.soy.js" type="download" location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+    -->
+    <web-resource key="wk-org-org-resources" name="">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="org.js" type="download" location="org/organization.js"/>
+        <!--<resource name="ztree.js" type="download" location="ztree/js/jquery.ztree.core.js"/>-->
+        <!--<resource name="ztree.css" type="download" location="ztree/css/zTreeStyle/zTreeStyle.css"/>-->
+        <resource name="organization_org.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+    <web-resource key="wk-org-strEmployee-resources" name="SHCH teamwrok Pro StrEmployee Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="strEmployee.js" type="download" location="com/work/plugin/teamwork/ui/strEmployee.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+
+    <web-section key="work_admin_section" name="SHCH Admin Section" location="admin_plugins_menu" weight="115">
+        <label key="workorg.property.SHCHAdminKit"/>
+    </web-section>
+    <!--
+        <web-item name="department" i18n-name-key="department.name" key="department" section="admin_plugins_menu/work_admin_section" weight="1000">
+            <description key="department.description">department Plugin</description>
+            <label key="workorg.property.StrDepartmentName"/>
+            <link linkId="bumen-link"><![CDATA[/secure/admin/dept.jspa]]></link>
+        </web-item>
+        -->
+    <web-item key="org-manage-link2" name="" section="admin_plugins_menu/work_admin_section" weight="104">
+        <label key="workorg.property.menu.zzjggl"/>
+        <link linkId="org-manage"><![CDATA[/secure/admin/gm.jspa]]></link>
+        <conditions type="AND">
+            <condition class="web.condition.IsMenuPermission">
+                <param name="menuID">zzjggl</param>
+            </condition>
+            <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+            <!--   <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition" /> -->
+        </conditions>
+    </web-item>
+
+
+    <web-item key="org-manage-link1" name="Organization Manage Link" section="admin_plugins_menu/work_admin_section"
+              weight="105">
+        <label key="workorg.property.menu.qxkznew"/>
+        <link linkId="org-manage"><![CDATA[/secure/admin/authManage.jspa]]></link>
+        <conditions type="AND">
+            <condition class="web.condition.IsMenuPermission">
+                <param name="menuID">qxkznew</param>
+            </condition>
+            <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+            <!--   <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition" /> -->
+        </conditions>
+    </web-item>
+    <!--
+    <web-item name="employee" i18n-name-key="employee.name" key="employee" section="admin_plugins_menu/work_admin_section" weight="1000">
+        <description key="employee.description">employee Plugin</description>
+        <label key="workorg.property.StrEmployeeName"/>
+        <link linkId="guyuan-link"><![CDATA[/secure/admin/strEmployee.jspa]]></link>
+    </web-item>
+    -->
+
+
+    <component key="orgAOService" class="com.work.plugin.ao.OrganizationAOServiceImpl"
+               interface="com.work.plugin.ao.OrganizationAOService"/>
+
+
+
+
+    <web-resource key="wk-org-bmryfbState-resources" name="SHCH teamwrok Pro bmryfbState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bmryfbSta te.js" type="download" location="com/work/plugin/teamwork/ui/bmryfbState.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="BmryfbState.css" type="download" location="css/BmryfbState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-bmrygzState-resources" name="SHCH teamwrok Pro bmrygzState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="bmrygzState.js" type="download" location="com/work/plugin/teamwork/ui/bmrygzState.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="BmrygzState.css" type="download" location="css/BmrygzState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-gsryldState-resources" name="SHCH teamwrok Pro gsryldState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="gsryldState.js" type="download" location="com/work/plugin/teamwork/ui/gsryldState.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="gsryldState.css" type="download" location="css/gsryldState.css"/>
+        <resource name="images/" type="download" location="images/"/>
+    </web-resource>
+
+    <web-resource key="wk-org-tdryfbState-resources" name="SHCH teamwrok Pro tdryfbState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="tdryfbState.js" type="download" location="com/work/plugin/teamwork/ui/tdryfbState.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="tdryfbState.css" type="download" location="css/tdryfbState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-tdrygzState-resources" name="SHCH teamwrok Pro tdrygzState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="tdrygzState.js" type="download" location="com/work/plugin/teamwork/ui/tdrygzState.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="tdrygzState.css" type="download" location="css/tdrygzState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-ViewEmployee-resources" name="SHCH teamwrok Pro ViewEmployee Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="viewEmployee.js" type="download"
+                  location="com/work/plugin/teamwork/ui/viewEmployee.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+    </web-resource>
+    <web-resource name="easyui resource" key="jquery-easy-ui-resource">
+        <resource name="easyui.js" type="download" location="jquery-easyui-1.5.2/jquery.easyui.min.js"/>
+        <resource name="easyui.edatagrid.js" type="download"
+                  location="jquery-easyui-1.5.2/plugins/jquery.edatagrid.js"/>
+        <resource name="easyui.css" type="download" location="jquery-easyui-1.5.2/themes/default/easyui.css"/>
+        <resource name="icon.css" type="download" location="jquery-easyui-1.5.2/themes/icon.css"/>
+        <resource name="icons/" type="download" location="jquery-easyui-1.5.2/themes/icons"/>
+        <resource name="images/" type="download" location="jquery-easyui-1.5.2/themes/default/images"/>
+    </web-resource>
+
+    <web-resource key="wk-org-setReport-resources" name="SHCH teamwrok Pro showReport Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="setReport.js" type="download" location="com/work/plugin/teamwork/ui/report/setReport.js"/>
+        <resource name="report.soy.js" type="download" location="com/work/plugin/teamwork/ui/report/report.soy"/>
+        <resource name="echarts.js" type="download"
+                  location="com/work/plugin/teamwork/ui/report/echarts/echarts.js"/>
+        <resource name="BmryfbState.css" type="download" location="css/BmryfbState.css"/>
+    </web-resource>
+
+    <web-resource key="wk-org-showReport-resources" name="SHCH teamwrok Pro showReport Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="showReport.js" type="download"
+                  location="com/work/plugin/teamwork/ui/report/showReport.js"/>
+        <resource name="report.soy.js" type="download" location="com/work/plugin/teamwork/ui/report/report.soy"/>
+        <resource name="echarts.js" type="download"
+                  location="com/work/plugin/teamwork/ui/report/echarts/echarts.js"/>
+    </web-resource>
+
+
+    <web-item key="lzjggl" name="lzjggl Menu" i18n-name-key="lzjggl.name" section="system.top.navigation.bar"
+              weight="110">
+        <label key="workorg.property.menu.lzjggl"/>
+        <link linkId="lzjggl-menu"><![CDATA[/secure/lzjggl.jspa]]></link>
+        <conditions type="AND">
+            <condition class="web.condition.IsMenuPermission"/>
+
+        </conditions>
+    </web-item>
+
+    <web-section key="zzjggl-menu-section" name="zzjggl-menu Dropdown" location="lzjggl-menu"
+                 weight="210"></web-section>
+    <web-item key="zzjggl" name="zzjggl-menu-section Item" section="lzjggl-menu/zzjggl-menu-section" weight="220">
+        <label key="workorg.property.menu.zzjggl"/>
+        <link linkId="zzjggl.section.link"><![CDATA[/secure/gm.jspa]]></link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">zzjggl</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+
+    <web-section key="statement-menu-section" name="statement-menu Dropdown" location="lzjggl-menu"
+                 weight="710"></web-section>
+    <web-item key="bmryfb" name="bmryfb-menu-section Item" section="lzjggl-menu/statement-menu-section" weight="720">
+        <label key="workorg.property.menu.bmryfb"/>
+        <link linkId="bmryfb.section.link">/secure/BmryfbState.jspa</link>
+        <resource name="images/" type="download" location="images/"/>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">bmryfb</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-item key="gsryld" name="gsryld-menu-section Item" section="lzjggl-menu/statement-menu-section" weight="720">
+        <label key="workorg.property.menu.gsryld"/>
+        <link linkId="gsryld.section.link">/secure/GsryldState.jspa</link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">gsryld</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-item key="bmrygz" name="bmrygz-menu-section Item" section="lzjggl-menu/statement-menu-section" weight="730">
+        <label key="workorg.property.menu.bmrygz"/>
+        <link linkId="bmrygz.section.link">/secure/BmrygzState.jspa</link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">bmrygz</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-item key="tdryfb" name="tdryfb-menu-section Item" section="lzjggl-menu/statement-menu-section" weight="740">
+        <label key="workorg.property.menu.tdryfb"/>
+        <link linkId="tdryfb.section.link">/secure/TdryfbState.jspa</link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">tdryfb</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-item key="tdrygz" name="tdrygz-menu-section Item" section="lzjggl-menu/statement-menu-section" weight="750">
+        <label key="workorg.property.menu.tdrygz"/>
+        <link linkId="tdrygz.section.link">/secure/TdrygzState.jspa</link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">tdrygz</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+
+    <!--"______________________________________________________________________________________"-->
+    <web-item key="lowerissues" name="lowerissues-menu-section Item" section="lzjggl-menu/statement-menu-section"
+              weight="755">
+        <label key="workorg.property.menu.lowerissues"/>
+        <link linkId="tdrygz.section.link">/secure/lowerissues.jspa</link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">lowerissues</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-resource key="wk-org-lowerissues-resources" name="SHCH teamwrok Pro tdrygzState Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="lowerissues.js" type="download" location="com/work/plugin/teamwork/ui/lowerissues.js"/>
+        <resource name="organization_template.soy.js" type="download"
+                  location="com/work/plugin/teamwork/ui/organization_template.soy"/>
+        <resource name="jquery.treeTable.js" type="download" location="js/jquery.treeTable.js"/>
+        <resource name="jquery.treeTable.css" type="download" location="css/jquery.treeTable.css"/>
+        <resource name="images/" type="download" location="images/"/>
+        <resource name="lowerissues.css" type="download" location="css/lowerissues.css"/>
+    </web-resource>
+    <!--"______________________________________________________________________________________"-->
+    <web-section key="advanceReport-menu-section" name="advanceReport-menu Dropdown" location="lzjggl-menu"
+                 weight="770"></web-section>
+    <web-item key="setReport" name="setReport-menu-section Item" section="lzjggl-menu/advanceReport-menu-section"
+              weight="790">
+        <label key="workorg.property.menu.setReport"/>
+        <link linkId="setReport.section.link">/secure/setReport.jspa</link>
+        <resource name="images/" type="download" location="images/"/>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">setReport</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+
+    <web-item key="showReport" name="showReport-menu-section Item" section="lzjggl-menu/advanceReport-menu-section"
+              weight="780">
+        <label key="workorg.property.menu.showReport"/>
+        <link linkId="showReport.section.link">/secure/showReport.jspa</link>
+        <resource name="images/" type="download" location="images/"/>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">showReport</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+
+    <web-section key="syncAd-menu-section" name="syncAd-menu Dropdown" location="lzjggl-menu"
+                 weight="910"></web-section>
+    <web-item key="adsjtb" name="syncAd-menu-section Item" section="lzjggl-menu/syncAd-menu-section" weight="920">
+        <label key="workorg.property.menu.adsjtb"/>
+        <link linkId="syncAd.section.link"><![CDATA[/secure/taskview.jspa]]></link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">adsjtb</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+
+    <web-section key="qxkznew-menu-section" name="qxkznew-menu Dropdown" location="lzjggl-menu"
+                 weight="950"></web-section>
+    <web-item key="qxkznew" name="qxkznew-menu-section Item" section="lzjggl-menu/qxkznew-menu-section" weight="960">
+        <label key="workorg.property.menu.qxkznew"/>
+        <link linkId="qxkznew.section.link"><![CDATA[/secure/authManage.jspa]]></link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID">qxkznew</param>
+        </condition>
+        <condition class="com.work.plugin.util.license.license.LicenseValidCondition"/>
+    </web-item>
+    <web-section key="help-menu-section" name="help-menu Dropdown" location="lzjggl-menu" weight="1010"></web-section>
+    <web-item key="help" name="help-menu-section Item" section="lzjggl-menu/help-menu-section" weight="1020">
+        <label key="workorg.property.menu.help"/>
+        <link linkId="index.section.link"><![CDATA[/secure/teamworkHelp.jspa]]></link>
+        <condition class="web.condition.IsMenuPermission">
+            <param name="menuID"></param>
+        </condition>
+
+    </web-item>
+    <component key="strEmployeeService" class="com.work.plugin.ao.StrEmployeeServiceImpl"
+               interface="com.work.plugin.ao.StrEmployeeService"/>
+    <component key="teamProjectService" class="com.work.plugin.ao.TeamProjectServiceImpl"
+               interface="com.work.plugin.ao.TeamProjectService"/>
+    <component key="teamProjectMemberService" class="com.work.plugin.ao.TeamProjectMemberServiceImpl"
+               interface="com.work.plugin.ao.TeamProjectMemberService"/>
+    <component key="bmryfbStateService" class="com.work.plugin.ao.BmryfbStateServiceImpl"
+               interface="com.work.plugin.ao.BmryfbStateService"/>
+    <component key="gsryldStateService" class="com.work.plugin.ao.GsryldStateServiceImpl"
+               interface="com.work.plugin.ao.GsryldStateService"/>
+    <component key="SetReportService" class="com.work.plugin.report.SetReportServiceImpl"
+               interface="com.work.plugin.report.SetReportService"/>
+    <component key="ShowReportService" class="com.work.plugin.report.ShowReportServiceImpl"
+               interface="com.work.plugin.report.ShowReportService"/>
+    <component key="GetOrgTreeService" class="com.work.plugin.report.GetOrgTreeServiceImpl"
+               interface="com.work.plugin.report.GetOrgTreeService"/>
+
+    <web-resource key="wk-org-gm-resources" name="gm resources">
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-date-picker</dependency>
+        <dependency>com.atlassian.auiplugin:aui-table-sortable</dependency>
+        <dependency>com.atlassian.auiplugin:dialog2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-experimental-iconfont</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="ztree.js" type="download" location="ztree/js/jquery.ztree.all.min.js"/>
+        <resource name="img/" type="download" location="ztree/css/zTreeStyle/img"/>
+        <resource name="images/" type="download" location="images"/>
+        <resource name="ztree.css" type="download" location="ztree/css/zTreeStyle/zTreeStyle.css"/>
+        <resource name="gm.css" type="download" location="org/groupMember.css"/>
+        <resource name="gm.js" type="download" location="org/groupMember.js"/>
+        <resource name="common.js" type="download" location="js/common.js"/>
+        <resource name="gm.soy.js" type="download" location="org/groupMember_template.soy"/>
+
+    </web-resource>
+    <web-resource key="bootstrap-datepicker" name="bootstrap-datepicker-js">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <resource name="datepicker.css" type="download"
+                  location="dist/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker3.standalone.css"/>
+        <resource name="datepicker.js" type="download"
+                  location="dist/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"/>
+        <resource name="english-resource" type="download"
+                  location="dist/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.en-AU.min.js"/>
+        <resource name="japan-resource" type="download"
+                  location="dist/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"/>
+        <resource name="zh-CN-resource" type="download"
+                  location="dist/bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.zh-CN.min.js"/>
+    </web-resource>
+
+    <component key="importConfigService" class="com.work.plugin.service.ImportConfigServiceImpl"/>
+    <component key="departmentValidationController"
+               class="com.work.plugin.imports.DepartmentValidationController"/>
+    <component key="employeeValidationController"
+               class="com.work.plugin.imports.EmployeeValidationController"/>
+    <component key="organizeValidationController"
+               class="com.work.plugin.imports.OrganizeValidationController"/>
+
+    <component key="departmentDataProcess" class="com.work.plugin.imports.data.DepartmentDataProcess"/>
+    <component key="employeeDataProcess" class="com.work.plugin.imports.data.EmployeeDataProcess"/>
+    <component key="organizeDataProcess" class="com.work.plugin.imports.data.OrganizeDataProcess"/>
+
+    <component key="booleanValidator" class="com.work.plugin.validator.BooleanValidator"/>
+    <component key="dateTimeValidator" class="com.work.plugin.validator.DateTimeValidator"/>
+    <component key="emailValidator" class="com.work.plugin.validator.EmailValidator"/>
+    <component key="lengthValidator" class="com.work.plugin.validator.LengthValidator"/>
+    <component key="numberValidator" class="com.work.plugin.validator.NumberValidator"/>
+    <component key="organizeTypeValidator" class="com.work.plugin.validator.OrganizeTypeValidator"/>
+    <component key="phoneNumberValidator" class="com.work.plugin.validator.PhoneNumberValidator"/>
+    <component key="relationDepartmentValidator"
+               class="com.work.plugin.validator.RelationDepartmentValidator"/>
+    <component key="relationEmployeeValidator"
+               class="com.work.plugin.validator.RelationEmployeeValidator"/>
+    <component key="relationOrganizeValidator"
+               class="com.work.plugin.validator.RelationOrganizeValidator"/>
+    <component key="relationTeamValidator" class="com.work.plugin.validator.RelationTeamValidator"/>
+    <component key="requiredValidator" class="com.work.plugin.validator.RequiredValidator"/>
+    <component key="uniqueEmployeeValidator"
+               class="com.work.plugin.validator.UniqueEmployeeValidator"/>
+    <component key="uniqueGroupValidator" class="com.work.plugin.validator.UniqueGroupValidator"/>
+    <component key="uniqueOrganizeValidator"
+               class="com.work.plugin.validator.UniqueOrganizeValidator"/>
+    <component key="userNameValidator" class="com.work.plugin.validator.UserNameValidator"/>
+
+    <component-import key="pluginScheduler" interface="com.atlassian.sal.api.scheduling.PluginScheduler"/>
+<!--    <component key="compatibilityPluginScheduler"-->
+<!--               class="com.atlassian.scheduler.compat.AutoDetectingCompatibilityPluginScheduler"-->
+<!--               interface="com.atlassian.scheduler.compat.CompatibilityPluginScheduler"/>-->
+    <component key="lDAPPropertiesHelperImpl" class="com.atlassian.crowd.directory.ldap.util.LDAPPropertiesHelperImpl"
+               interface="com.atlassian.crowd.directory.ldap.util.LDAPPropertiesHelper"/>
+    <component key="strEmployeeExtendService" class="com.work.plugin.ao.StrEmployeeExtendServiceImpl"
+               interface="com.work.plugin.ao.StrEmployeeExtendService"/>
+    <component key="ldapSyncTimeService" class="com.work.plugin.ao.LdapSyncTimeServiceImpl"
+               interface="com.work.plugin.ao.LdapSyncTimeService"/>
+    <component key="roleService" class="com.work.plugin.ao.RoleServiceImpl"
+               interface="com.work.plugin.ao.RoleService"/>
+    <component key="powerService" class="com.work.plugin.ao.PowerServiceImpl"
+               interface="com.work.plugin.ao.PowerService"/>
+    <component key="importDataTempService" class="com.work.plugin.ao.ImportDataTempServiceImpl"
+               interface="com.work.plugin.ao.ImportDataTempService"/>
+    <component key="weChatAndJiraUserService" class="com.work.plugin.ao.WeChatAndJiraUserImpl"
+               interface="com.work.plugin.ao.WeChatAndJiraUserService"/>
+    <component key="strPowerRoleService" class="com.work.plugin.ao.StrPowerRoleServiceImpl"
+               interface="com.work.plugin.ao.StrPowerRoleService"/>
+    <component key="timer" class="java.util.Timer"/>
+    <component key="ldapImportService" class="com.work.plugin.ao.LdapImportServiceImpl"
+               interface="com.work.plugin.ao.LdapImportService"/>
+    <web-resource key="domaintype-scheduler-resources" name="domaintype-scheduler Web Resources">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:dialog2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-flag</dependency>
+        <resource type="download" name="domaintype.js" location="/js/domaintype.js"/>
+    </web-resource>
+    <web-resource key="authManage-scheduler-resources" name="authManage-scheduler Web Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-toggle</dependency>
+        <dependency>com.atlassian.auiplugin:aui-experimental-iconfont</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="authManage.css" type="download" location="css/authManage.css"/>
+        <resource name="authManage.js" type="download" location="js/authManage.js"/>
+    </web-resource>
+    <web-resource key="testview-scheduler-resources" name="testview-scheduler-resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <transformation extension="soy">
+            <transformer key="soyTransformer"/>
+        </transformation>
+        <resource name="test.js" type="download" location="js/test.js"/>
+    </web-resource>
+    <web-resource key="show-org-tree" name="show-org-tree">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="showOrgTree.js" location="/com/work/plugin/teamwork/ui/showOrgTree.js"/>
+        <resource name="ztree.js" type="download" location="ztree/js/jquery.ztree.all.min.js"/>
+        <resource name="img/" type="download" location="ztree/css/zTreeStyle/img"/>
+        <resource name="images/" type="download" location="images"/>
+        <resource name="ztree.css" type="download" location="ztree/css/zTreeStyle/zTreeStyle.css"/>
+        <resource name="gm.css" type="download" location="org/groupMember.css"/>
+        <context>jira.general</context>
+        <context>jira.admin</context>
+        <context>jira.popup</context>
+        <context>jira.userprofile</context>
+        <context>jira.dashboard</context>
+        <context>jira.browse</context>
+        <context>jira.browse.component</context>
+        <context>jira.browse.project</context>
+        <context>jira.browse.projects</context>
+        <context>jira.create.issue</context>
+        <context>jira.browse.version</context>
+        <context>jira.navigator.advanced</context>
+        <context>jira.navigator.simple</context>
+        <context>atl.dashboard</context>
+        <context>issue.view.</context>
+    </web-resource>
+
+    <servlet-filter name="permitServlet" key="testFilter" class="web.filter.LongZhiFilter" system="true" weight="100">
+        <description>this is the first filter</description>
+        <url-pattern>*/wk-teamwork/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </servlet-filter>
+
+    <workflow-function key="assignissuetodepartment-function"
+                       name="Assign to Department"
+                       class="com.work.plugin.workflow.function.factory.AssigneeIssueToDepartmentFunctionFactory">
+        <description>Assigns the issue to the Organization-Structure Department</description>
+        <function-class>
+            com.work.plugin.workflow.function.AssigneeIssueToDepartmentFunction
+        </function-class>
+        <orderable>true</orderable>
+        <unique>true</unique>
+        <deletable>true</deletable>
+        <resource type="velocity" name="view"
+                  location="/com/work/plugin/teamwork/ui/workflow/function/assignToDeptView.vm"/>
+        <resource type="velocity" name="input-parameters"
+                  location="/com/work/plugin/teamwork/ui/workflow/function/assignToDeptInput.vm"/>
+        <resource type="velocity" name="edit-parameters"
+                    location="/com/work/plugin/teamwork/ui/workflow/function/assignToDeptInput.vm"/>
+    </workflow-function>
+    <web-resource name="workflowresource" key="workflowresource">
+        <resource type="download" name="assigneeIssueToDepartment.js"
+                  location="/com/work/plugin/teamwork/ui/assigneeIssueToDepartment.js"/>
+    </web-resource>
+
+    <!--lixiang-->
+
+</atlassian-plugin>

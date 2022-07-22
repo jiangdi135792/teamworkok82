@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    #parse( "js/teamwork_template.soy" )
+    <title>#getTextEx("workorg.property.organization.","orgAndMemberManagement")</title>
+    <link href="https://cdn.bootcss.com/nice-validator/1.1.3/jquery.validator.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/nice-validator/1.1.3/jquery.validator.js?local=en"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body class="">
+<section id="content" role="main">
+    <div class="aui-page-panel">
+        <div class="aui-page-panel-inner">
+            <div class="aui-page-panel-nav" style="height:630px;">
+                <div class="aui-tabs horizontal-tabs" style="height: 100%;overflow: auto;">
+                    <ul class="tabs-menu" >
+                        <li class="menu-item active-tab tab1" >
+                            <a href="#tabs-org"  data-treeid="deptTree">
+                                #getTextEx("workorg.property.organization.","org")</a>
+                        </li>
+
+                    </ul>
+                    <div class="tabs-pane active-pane" id="tabs-org">
+                        <div>
+                            <ul id="deptTree" class="ztree"></ul>
+                        </div>
+                    </div>
+                    <div class="tabs-pane" id="tabs-group">
+                        <div>
+                            <ul id="teamTree" class="ztree"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="right-section aui-page-panel-content">
+                <div class="right-content aui-flatpack-example toolbar2-example">
+                    <div class="aui-toolbar2">
+                        <div class="header aui-toolbar2-inner">
+                            <div class="aui-toolbar2-primary aui-help aui-help-text" style="width:100%">
+                                <span class="aui-help-content" style="float:left;width:20%"><a>组织详情</a></span>
+                                <span style="float:right;right:2px;width:30%">
+                                <div id="button-set" class="aui-buttons">
+                                    <button class="aui-button edit aui-button-primary" id="edit" style="display: none" >#getTextEx(
+                                        "workorg.property.common.","edit")</button>
+                                </div>
+                                <div id="button-set1" class="aui-buttons">
+
+                                    <button class="aui-button createOrg" id="creorg" style="display: none" >#getTextEx(
+                                        "workorg.property.organization.","createOrg")</button>
+
+                                    <button class="aui-button delete" id="del" style="display: none" >#getTextEx(
+                                        "workorg.property.common.","delete")</button>
+                                </div>
+
+</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="orgOrDeptInfo aui-help aui-help-text" style="height: 100px;margin:15px"></div>
+
+                    <div class="member-list"></div>
+
+                </div>
+
+                <div class="operation-content">
+
+                </div>
+                <!-- 页面刚加载时显示的 "该页面可维护公司树, 部门树以及雇员信息。" -->
+                <div id="initial-info" class="dashboard-item-content" style="height: 100px; text-align:center; vertical-align:middle">
+
+                    <span style="color:#707070; font-family:inherit; font-size:17px; text-align:-webkit-match-parent; vertical-align:middle">
+                        #getTextEx("workorg.property.organization.","initialinfo")
+                    </span>
+                </div>
+
+            </section>
+            <!-- Render the dialog -->
+            <section role="dialog" id="addEmployee-dialog" class="aui-layer aui-dialog2"
+                     style="width: 780px;height: 500px;" aria-hidden="true" data-aui-modal="true">
+            ##                <!-- Dialog header -->
+                <header class="aui-dialog2-header">
+                    <!-- The dialog's title -->
+                ##                    <h2 class="aui-dialog2-header-main">Always use sentence case</h2>
+                    <!-- Actions to render on the right of the header -->
+                    <a class="aui-dialog2-header-close">
+                        <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+                    </a>
+                </header>
+                <!-- Main dialog content -->
+                <div class="aui-dialog2-content">
+                    <div class="easyui-layout" style="width:660px;height:350px;">
+                        <div style="width:200px;left:0px;position: absolute;overflow: hidden; text-overflow: ellipsis;white-space: nowrap;height:360px;overflow-y: auto;"
+                             class="show-right-border">
+                            <ul id="dialog-org-tree" class="ztree"></ul>
+                        </div>
+                        <div style="width:200px;left:202px;position: absolute;height:360px;overflow-y: auto;"
+                             class="dialog-all-member-content show-right-border"></div>
+                        <div style="width:42px;height:360px;left:404px;position: absolute;" class="show-right-border">
+                            <div>
+                                <div>
+                                    <button class="add" style="top: 100px;left:4.5px;position: absolute">--></button>
+                                </div>
+                                <div>
+                                    <button class="addAll" style="top: 150px;left:4.7px;position: absolute">>></button>
+                                </div>
+                                <div>
+                                    <button class="remove" style="top: 200px;left:4.5px;position: absolute"><--</button>
+                                </div>
+                                <div>
+                                    <button class="removeAll" style="top: 250px;left:4.7px;position: absolute"><<</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width:280px;height:360px;left:450px;position: absolute;overflow-y: auto;" class="dialog-member-in-content">
+                            <div class="member-table">
+                            </div>
+                            <div class="roleSelDiv" style="display:none;">
+                                <span class="employee-name"></span>
+                                <input type="hidden" id="roleSel" />
+                                <div class="buttons-container">
+                                    <div class="buttons">
+                                        <button class="button save">save</button>
+                                        <a class="cancel" href="#">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dialog footer -->
+                <footer class="aui-dialog2-footer">
+                    <div class="aui-dialog2-footer-actions">
+                        <button id="dialog-submit-button" class="aui-button aui-button-primary">OK</button>
+                        <button id="dialog-close-button" class="aui-button aui-button-link">Close</button>
+                    </div>
+                </footer>
+            </section>
+        ## 项目映射团队dialog
+            <section role="dialog" id="mappingTeam-dialog" class="aui-layer aui-dialog2"
+                     style="width: 380px;height: 250px;" aria-hidden="true" data-aui-modal="true">
+            ##                <!-- Dialog header -->
+                <!-- Main dialog content -->
+                <div class="aui-dialog2-content">
+                    <div>
+                        #getTextEx("workorg.property.message.alert.","chooseMappedTeam") <input type="hidden" id="mappingTeam"/>
+                    </div>
+                </div>
+                <!-- Dialog footer -->
+                <footer class="aui-dialog2-footer">
+                    <div class="aui-dialog2-footer-actions">
+                        <button id="mapping-submit-btn" class="aui-button aui-button-primary">OK</button>
+                        <button id="mapping-cancle-btn" class="aui-button aui-button-link">Close</button>
+                    </div>
+                </footer>
+            </section>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    #set ($role = $defaultRole)
+    var defaultRole = {id:$role.getID(), name:'$role.getName()'};
+</script>
+</body>
+</html>

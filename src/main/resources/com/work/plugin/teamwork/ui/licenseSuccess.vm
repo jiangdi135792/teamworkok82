@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Licensing  information</title>
+        <meta name="decorator" content="atl.admin">
+        <meta name="admin.active.section" content="admin_plugins_menu/sample_licensing_admin_section/sample-licensing-global-config-link">
+        <meta name="admin.active.tab" content="sample-licensing-global-config-link">
+    </head>
+    <body >#parse( "js/teamwork_template.soy" )
+        <h2>$i18n.getText("workorg.property.common.license.information")</h2>
+
+        #if ($hasOffline)
+
+<section id="content" role="main">
+
+    <div  class="zTreeDemoBackground left" style="width: 300px;float: left;">
+        <ul id="treeDemo" class="ztree">
+
+                 <div class="field-group">
+
+
+
+
+                                   <div>授权给：<p>&nbsp;&nbsp; $hasLicenseCompanyInfo</div>
+
+
+
+                 </div>
+<p>
+                #foreach($LicenseInfo in $hasLicenseInfo)
+                     <div class="field-group">
+                                       产品 $LicenseInfo.p $LicenseInfo.v:
+                                       </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户数:$LicenseInfo.user
+                                       </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;许可日期:$LicenseInfo.append
+                                       </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务日期:$LicenseInfo.svrend
+                                     </div>
+                 #end
+
+<p>
+                <div class="field-group">
+                        <button id="dialog-submit-button" onclick="document.getElementById('licenseD').style.display='block'" class="aui-button aui-button-primary">设置许可</button>
+
+                </div>
+
+                    <div><font color="#FF0000">$hasValidLicenseError</font></div>
+
+        </ul>
+    </div>
+    <div  id="licenseD" style="display:none;margin-left: 320px;clear: none;margin-top: 0px;  border-left: 1px solid #ccc;">
+        <div class="aui-page-panel-inner">
+
+            <form class="aui form1">
+              <input  type="hidden"  id="act" name="act"  value="add">
+                <div class="field-group">
+
+                    <label>#getTextEx("workorg.property.Department.","公司：")</label>
+                     <input class="text medium-field" type="text"
+                                           id="company" name="company"  value="$!company">
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.Department.","序列号：")</label>
+                     <input class="text medium-field" type="text"
+                                           id="serialno" name="serialno"  value="$!serialno">
+                </div>
+
+
+                <div class="field-group">
+                     <label for="comment-input">#getTextEx("workorg.property.Department.","key：")</label>
+                     <textarea class="textarea"  name="key"
+                          id="key" placeholder="" style="width: 500px;max-width: 500px;height: 120px;" >$!key</textarea>
+                </div>
+                <div class="field-group">
+                        <button id="dialog-submit-button" class="aui-button aui-button-primary" onclick="document.getElementById('act').value='add'">更新</button>
+                        <button id="dialog-close-button" class="aui-button aui-button-link" onclick="document.getElementById('act').value='close'">取消</button>
+                                   #foreach ($error in $errors)
+                                    </br>  <font color="#FF0000">  $error </font>
+  <script type="text/javascript">
+       document.getElementById('licenseD').style.display='block';
+      </script>
+                                       　　#end
+                </div>
+             </form>
+       </div>
+    </div>
+</section>
+        #else
+             #if ($hasValidLicense)
+                 <div>$i18n.getText("workorg.property.common.license.valid")</div>
+            #else
+                 <div>$i18n.getText("workorg.property.common.license.invalid")</div>
+            #end
+        #end
+
+
+    </body>
+</html>

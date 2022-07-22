@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta name="decorator" content="atl.admin">
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section">
+    #parse( "js/teamwork_template.soy" )
+    <meta charset="utf-8" />
+</head>
+<body>
+<section id="content" role="main" class="aaasss">
+    <a href="PermissionView.jspa"><div id="photo" style="width:18px;height:18px;"></div></a>
+    <div class="aui-tabs horizontal-tabs">
+        <ul class="tabs-menu">
+            <li class="menu-item active-tab">
+                <a href="#tabs-example-first" style="border-bottom: 1px solid  #ccc;">$i18n.getText("workorg.property.permissionMgr.roleoforg")</a>
+            </li>
+##            <li class="menu-item">
+##                <a href="#tabs-example-second">$i18n.getText("workorg.property.permissionMgr.roleofpro")</a>
+##            </li>
+        </ul>
+        <div class="tabs-pane active-pane" id="tabs-example-first" style="border: none">
+            ##<div class="zTreeDemoBackground left" style="background-color: #737659;float: left;width: 50%">
+            <div  style="background-color: #f5f5f5;float: left;width: 50%">
+                ##<ul id="permis" class="ztree"></ul>
+                    <table class="aui">
+                        <thead>
+                        <tr >
+                            <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.role")</th>
+                            <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.roleweight")</th>
+                            <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.roledescription")</th>
+                            <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.operate")</th>
+                        </tr>
+                        </thead>
+                        <tbody id="orgRoleTable">
+                        </tbody>
+                    </table>
+            </div>
+            <div style="background-color: #f5f5f5;float: left;width: 50%">
+                <table class="aui">
+                    <thead><tr><th style="text-align: center;vertical-align: middle">$i18n.getText("workorg.property.permissionMgr.menu")</th><th style="text-align: center;vertical-align: middle">$i18n.getText("workorg.property.permissionMgr.operate")</th></tr></thead>
+                    <tbody id="menuPermit"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tabs-pane" id="tabs-example-second"  style="border: none">
+            <div  style="float: left;width: 50%">
+                <table class="aui">
+                    <thead style="background-color:#f5f5f5">
+                    <tr>
+                 #*       <th style="padding: 2px">角色</th>
+                        <th style="padding: 2px">角色权重</th>
+                        <th style="padding: 2px">描述</th>
+                        <th style="padding: 2px"> 操作</th>*#
+                        <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.role")</th>
+                        <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.roleweight")</th>
+                        <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.roledescription")</th>
+                        <th style="padding: 2px;text-align:center">$i18n.getText("workorg.property.permissionMgr.operate")</th>
+                    </tr>
+                    </thead>
+                    <tbody id="depRoleTable">
+                    </tbody>
+                </table>
+            </div>
+            <div id="menuShow" style="float: left;width: 50%;">
+                <table class="aui">
+                    <thead><tr><th style="text-align: center;vertical-align: middle">$i18n.getText("workorg.property.permissionMgr.menu")</th><th style="text-align: center;vertical-align: middle">$i18n.getText("workorg.property.permissionMgr.operate")</th></tr></thead>
+                    <tbody id="depmenuPermit"></tbody>
+                </table>
+            </div>
+            <div id="projectPermission" style="background-color: #f5f5f5;float:left;width: 50%">
+                <table class="aui">
+                    <thead>
+                    <tr><th>$i18n.getText("workorg.property.permissionMgr.power")</th><th>$i18n.getText("workorg.property.permissionMgr.operate")</th></tr>
+                    </thead>
+                    <tbody id="proPermisson" hidden>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

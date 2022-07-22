@@ -1,0 +1,158 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.admin" />
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section" />
+    <meta name="admin.active.tab" content="org-manage" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.28/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="http://www.treejs.cn/v3/js/jquery.ztree.core.js?2013031101"></script>
+
+</head>
+<body>#parse( "js/teamwork_template.soy" )
+<section id="content" role="main">
+    <div class="zTreeDemoBackground left" style="width: 200px;float: left;">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+    <div style="margin-left: 220px;clear: none;margin-top: 0px;  border-left: 1px solid #ccc;">
+        <div class="aui-page-panel-inner">
+            <!---->
+            <form name="form1" style="margin-top: 20px" class="aui form1">
+                <!--<input name="id" id="id" type="hidden" />-->
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeName")</label>
+                    <input class="text medium-field" type="text" id="employeeName" name="employeeName" onblur="check(this)" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeNo")</label>
+                    <input class="text medium-field" type="text" id="employeeNo" name="employeeNo" onblur="check(this)" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","email")</label>
+                    <input class="text medium-field" type="text" id="email" name="email" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeSex")</label>
+                    <select class="select" id="employeeSex" name="employeeSex" style="width:70px;">
+                        <option value="1">#getTextEx("workorg.property.StrEmployee.","male")</option>
+                        <option value="2">#getTextEx("workorg.property.StrEmployee.","female")</option>
+                    </select>
+                </div>
+
+
+
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","jiraUserName")</label>
+
+                         <select class="select" id="jiraUserKey" name="jiraUserKey">
+                                            </select>
+
+
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","jiraId")</label>
+                    <input class="text medium-field" type="text" id="jiraId" name="jiraId" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","phone")</label>
+                    <input class="text medium-field" type="text" id="phone" name="phone" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","otherPhone")</label>
+                    <input class="text medium-field" type="text" id="otherPhone" name="otherPhone" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employmentStatus")</label>
+                    <select class="select" id="employmentStatus" name="employmentStatus" style="width:70px;">
+                        <option value="1">#getTextEx("workorg.property.StrEmployee.","onJob")</option>
+                        <option value="2">#getTextEx("workorg.property.StrEmployee.","dimission")</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","entryTime")</label>
+                    <!--<input class="text medium-field" style="width:200px;" type="date" id="entryTime" name="entryTime" value=""/>-->
+                    <input class="aui-date-picker" id="entryTime" type="date" />
+                </div>
+                <!--<div class="field-group">-->
+                <!--<label>#getTextEx("workorg.property.StrEmployee.","leaveTime")</label>-->
+                <!--<input class="text medium-field" style="width:200px;" type="date" id="leaveTime" name="leaveTime" value="" />-->
+                <!--</div>-->
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","memo")</label>
+                    <textarea class="textarea" style="width:200px;" name="memo" id="memo" placeholder="Your comment here..."></textarea>
+                </div>
+                <div class="buttons-container">
+                    <div class="buttons">
+                        <input class="button" type="button" value='#getTextEx("workorg.property.StrEmployee.","create")' id="savebut" />
+                    </div>
+                </div>
+            </form>
+
+            <!---->
+            <form style="display: none" class="aui form2">
+                <input name="id" id="" type="hidden" />
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeName")</label>
+                    <input class="text medium-field" type="text" id="" name="employeeName" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeNo")</label>
+                    <input class="text medium-field" type="text" id="" name="employeeNo" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","email")</label>
+                    <input class="text medium-field" type="text" id="" name="email" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employeeSex")</label>
+                    <select class="select" id="" name="employeeSex" style="width:70px;">
+                        <option value="1">#getTextEx("workorg.property.StrEmployee.","male")</option>
+                        <option value="2">#getTextEx("workorg.property.StrEmployee.","female")</option>
+                    </select>
+                </div>
+
+                 <div class="field-group">
+                                    <label>#getTextEx("workorg.property.StrEmployee.","jiraUserName")</label>
+
+                                         <select class="select" id="jiraUserKey" name="jiraUserKey">
+                                                            </select>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","phone")</label>
+                    <input class="text medium-field" type="text" id="" name="phone" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","otherPhone")</label>
+                    <input class="text medium-field" type="text" id="" name="otherPhone" placeholder="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","employmentStatus")</label>
+                    <select class="select" id="" name="employmentStatus" style="width:70px;">
+                        <option value="1">#getTextEx("workorg.property.StrEmployee.","onJob")</option>
+                        <option value="2">#getTextEx("workorg.property.StrEmployee.","dimission")</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","entryTime")</label>
+                    <input class="text medium-field" style="width:200px;" type="date" id="" name="entryTime" value=""/>
+                </div>
+                <div class="field-group" id="outjob">
+                    <label>#getTextEx("workorg.property.StrEmployee.","leaveTime")</label>
+                    <input class="text medium-field" style="width:200px;" type="date" id="leaveTime" name="leaveTime" value="" />
+                </div>
+                <div class="field-group">
+                    <label>#getTextEx("workorg.property.StrEmployee.","memo")</label>
+                    <textarea class="textarea" style="width:200px;" name="memo" id="" placeholder=""></textarea>
+                </div>
+                <div class="buttons-container">
+                    <div class="buttons">
+                        <input class="button" type="button" value='#getTextEx("workorg.property.StrEmployee.","update")' id="updbut" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+

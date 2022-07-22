@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="main_setreport" class="easyui-layout" style="width:99%;height:600px;">
+    <div  data-options="region:'west',split:true" title="$i18n.getText('workorg.property.report.report')" style="width:15%;">
+        <div id="report_west" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+            <a href="#" id="report_west_add" class="easyui-linkbutton" style="width:150px;display: none" onclick="addBut()">$i18n.getText("workorg.property.report.addReport")</a>
+        </div>
+    </div>
+
+    <div id="setReport" data-options="region:'center'" title="$i18n.getText('workorg.property.menu.setReport')"></div>
+</div>
+</body>
+</html>

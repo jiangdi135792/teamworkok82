@@ -1,0 +1,25 @@
+<html>
+<head>
+   <meta name="decorator" content="atl.admin">
+    <meta name="admin.active.section" content="admin_plugins_menu/work_admin_section">
+  ##  <meta name="admin.active.tab" content="org-manage">
+
+      <meta charset="utf-8" />
+      <meta asdefsdf />
+</head>
+<body>
+
+<section id="content" role="main" class="aaasss">
+<a href="PermissionView.jspa"><div id="photo" style="width:18px;height:18px;"></div></a>
+    <div class="aui-page-panel">
+
+        <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">
+                <table id="org-main-table"></table>
+
+            </section>
+        </div>
+    </div>
+</section>
+</body>
+</html>

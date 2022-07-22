@@ -1,0 +1,17 @@
+You have successfully created an Atlassian Plugin!
+
+Here are the SDK commands you'll use immediately:
+
+* atlas-run   -- installs this plugin into the product and starts it on localhost
+* atlas-debug -- same as atlas-run, but allows a debugger to attach at port 5005
+* atlas-cli   -- after atlas-run or atlas-debug, opens a Maven command line window:
+                 - 'pi' reinstalls the plugin into the running product instance
+* atlas-help  -- prints description for all commands in the SDK
+
+Full documentation is always available at:
+
+https://developer.atlassian.com/display/DOCS/Introduction+to+the+Atlassian+Plugin+SDK
+dfsdf
+
+
+/Users/mark/Library/Java/JavaVirtualMachines/liberica-1.8.0_302/bin/java   -Xmx2048m -Xms2048m -Xmn640m -Xss640m -Dmaven.multiModuleProjectDirectory=/Users/mark/Documents/prj/teamwork -Dmaven.home=/Applications/Atlassian/atlassian-plugin-sdk-8.2.7/apache-maven-3.5.4 -Dclassworlds.conf=/Applications/Atlassian/atlassian-plugin-sdk-8.2.7/apache-maven-3.5.4/bin/m2.conf -Dmaven.ext.class.path="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar" -javaagent:"/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=65054:/Applications/IntelliJ IDEA.app/Contents/bin" -Dfile.encoding=UTF-8 -classpath /Applications/Atlassian/atlassian-plugin-sdk-8.2.7/apache-maven-3.5.4/boot/plexus-classworlds-2.5.2.jar org.codehaus.classworlds.Launcher -Didea.version=2021.2 -s /Applications/Atlassian/atlassian-plugin-sdk-8.2.7/apache-maven-3.5.4/conf/settings.xml com.atlassian.maven.plugins:maven-jira-plugin:6.2.1:debug

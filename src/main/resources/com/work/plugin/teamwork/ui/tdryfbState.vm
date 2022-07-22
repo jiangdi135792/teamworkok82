@@ -1,0 +1,56 @@
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.bootcss.com/zTree.v3/3.5.28/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="http://www.treejs.cn/v3/js/jquery.ztree.core.js?2013031101"></script>
+
+    <style type="text/css">
+
+        table {
+        width: 1000px;
+        padding: 50 ;
+        margin: 100 auto;
+        border-collapse: collapse;
+        }
+
+        caption,td,th {
+        border: 1px solid #ddd;
+        padding: 6px 6px 6px 12px;
+        color: #4f6b72;
+
+        }
+        th {
+        background: #d3d3d3;
+        }
+        caption {
+        font-size:30px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>#parse( "js/teamwork_template.soy" )
+
+<table id="example-advanced" class="treetable" border="0" align="center">
+    <caption align="center">#getTextEx("workorg.property.menu.","tdryfb")</caption>
+    <a href="SystemreportView.jspa"><div id="photo" style="width:18px;height:18px;"></div></a>
+</table>
+<div id="YWaitDialog"
+    style="text-align:center"
+    position: absolute;
+    margin: auto;
+    top: 300px;
+    display: none;
+    height: 400px;
+    width: 400px;">
+    <p style="text-align: center; vertical-align: central;color:red;">
+        <h2>#getTextEx("workorg.property.bmryfb.","creport")</h2>
+    </p>
+</div>
+</body>
+</html>
